@@ -11,8 +11,10 @@ use App\Services\TaskService;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', ['name' => 'bernardino-app']);
 });
+Route::get('/users', [UserController::class, 'index']);
+Route::resource('product', ProductController::class);
 
 Route::get('/test-container', function (Request $request) {
     $container = $request->input('key');
@@ -74,9 +76,9 @@ Route::post('/token', function(Request $request){
 });
 
 // Exercise #4
-Route::get('/users', [UserController::class, 'index'])->middleware('user-middleware');
+// Route::get('/users', [UserController::class, 'index'])->middleware('user-middleware');
 
-Route::resource('product', ProductController::class);
+// Route::resource('product', ProductController::class);
 
 Route::get('/product-list', function (ProductService $productService) {
     $data['products'] = $productService->listProducts();

@@ -6,7 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    
-<h1> Welcome I am Joshua Bernardino</h1>
+    <x-layout>
+        <x-slot:heading>
+        <h1> Welcome I am Joshua Bernardino</h1>
+        </x-slot>
+    </x-layout>
 </body>
 </html>
